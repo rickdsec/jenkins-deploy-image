@@ -3,20 +3,20 @@ node {
 
     stage('Clone repository') {
         /* Cloning the Repository to our Workspace */
-
+	echo "Clone repo"
         checkout scm
     }
 
     stage('Build image') {
         /* This builds the actual image */
-
-        app = docker.build("rickd/nodeapp")
+	echo "Building image"
+        //app = docker.build("rickd/nodeapp")
     }
 
     stage('Test image') {
-        
-        app.inside {
-            echo "Tests passed"
+        echo "Test image"
+        //app.inside {
+            //echo "Tests passed"
         }
     }
 
@@ -24,10 +24,10 @@ node {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+        //docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+            //app.push("${env.BUILD_NUMBER}")
+            //app.push("latest")
             } 
-                echo "Trying to Push Docker Build to DockerHub"
+                //echo "Trying to Push Docker Build to DockerHub"
     }
 }
