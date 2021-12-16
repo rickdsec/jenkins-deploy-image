@@ -1,4 +1,5 @@
 pipeline {
+    def app
     agent any 
     stages {
         stage('Check CSM') {
@@ -10,6 +11,7 @@ pipeline {
         stage('Build image') {
             steps { 
                 echo 'Building image'
+                app = docker.build("rickd/nodeapp")
             }   
         }    
     }
