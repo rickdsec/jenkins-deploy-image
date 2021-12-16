@@ -8,4 +8,13 @@ pipeline {
             }
         }
     }
+    stages {
+        stage('Build image') {
+            steps {
+                echo 'Building image' 
+            }
+        }
+    }
+
 }
+
