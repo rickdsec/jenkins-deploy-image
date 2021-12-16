@@ -1,18 +1,15 @@
-def app = ""
-pipeline {
-    agent any 
-    stages {
-        stage('Check CSM') {
-            steps {
-                checkout scm
-                echo 'Checkout SCM' 
-            }
-        }
-        stage('Build image') {
-            steps { 
-                echo 'Building image'
-                app = docker.build("rickd/nodeapp")
-            }   
-        }    
+
+node {
+    def app
+    stage('Clone repository') {
+        /* Cloning the Repository to our Workspace */
+	    echo "Clone repo"
+        checkout scm
     }
+
+    stage('Build image') {
+        echo "Building image"
+        app = docker.build("rickd/nodeapp")
+    }
+        
 }
