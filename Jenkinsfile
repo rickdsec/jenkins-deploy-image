@@ -4,8 +4,9 @@ node {
         echo "Clone repo"
         checkout scm 
     }
-    stage('Test') { 
-        // 
+    stage('building image') { 
+        echo "Building image"
+        app = docker.build("rickd/nodeapp") 
     }
     stage('Deploy') { 
         // 
