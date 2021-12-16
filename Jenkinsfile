@@ -7,14 +7,10 @@ pipeline {
                 echo 'Checkout SCM' 
             }
         }
-    }
-    stages {
         stage('Build image') {
-            steps {
-                echo 'Building image' 
-            }
-        }
+            steps { 
+                echo 'Building image'
+            }   
+        }    
     }
-
 }
-
