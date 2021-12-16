@@ -1,15 +1,13 @@
-
-node {
+node {  
     def app
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-	    echo "Clone repo"
-        checkout scm
+    stage('Clone repo ') { 
+        echo "Clone repo"
+        checkout scm 
     }
-
-    stage('Build image') {
-        echo "Building image"
-        app = docker.build("rickd/nodeapp")
+    stage('Test') { 
+        // 
     }
-        
+    stage('Deploy') { 
+        // 
+    }
 }
